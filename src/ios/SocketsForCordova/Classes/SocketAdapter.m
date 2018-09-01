@@ -29,7 +29,7 @@ NSOutputStream *outputStream;
 
 BOOL wasOpenned = FALSE;
 
-int const WRITE_BUFFER_SIZE = 20 * 1024;  //This is the size of the memory used when sending to the server.  Original size = 10*1024
+int const WRITE_BUFFER_SIZE = 30 * 1024;  //This is the size of the memory used when sending to the server.  Original size = 10*1024
 
 @implementation SocketAdapter
 
