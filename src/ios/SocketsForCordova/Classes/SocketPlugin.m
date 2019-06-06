@@ -175,9 +175,18 @@
 - (SocketAdapter*) getSocketAdapter: (NSString*) socketKey {
 	SocketAdapter* socketAdapter = [self->socketAdapters objectForKey:socketKey];
 	if (socketAdapter == nil) {
-		NSString *exceptionReason = [NSString stringWithFormat:@"Cannot find socketKey: %@. Connection is probably closed.", socketKey];
+    //Commented out the below items to try and stop app crashes.  Experiminatal.  some extra code added below that is not in original.
+    
+		// NSString *exceptionReason = [NSString stringWithFormat:@"Cannot find socketKey: %@. Connection is probably closed.", socketKey];
 		
-		@throw [NSException exceptionWithName:@"IllegalArgumentException" reason:exceptionReason userInfo:nil];
+    // Old throw that crashed app regulary
+	//	@throw [NSException exceptionWithName:@"IllegalArgumentException" reason:exceptionReason userInfo:nil];
+    
+    //new code added by dhyan 6Jun19
+            // [self.commandDelegate
+            //  sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:exceptionReason]
+            //  callbackId:nil];
+             
 	}
 	return socketAdapter;
 }
